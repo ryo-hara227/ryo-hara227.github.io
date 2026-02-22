@@ -1,0 +1,126 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wonderland Gate</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main id="app" class="app">
+    <!-- Entrance / Prologue -->
+    <section id="screen-entrance" class="screen is-active" aria-label="入口">
+      <div class="paper">
+        <header class="paper__header">
+          <h1 class="paper__title">ようこそ。</h1>
+          <p class="paper__lead">
+            ワンダーランドへの扉を開けるためには鍵が必要です。<br/>
+            あなた宛の招待状を読んで、扉を開けよう。
+          </p>
+
+          <div class="rule">
+            <p class="rule__title">指示</p>
+            <p class="rule__text">
+              扉を開けるには、<strong>3文字のパスワード</strong>が必要です。<br/>
+              <strong>記号は使えません。</strong>
+            </p>
+          </div>
+        </header>
+
+        <!-- Letter -->
+        <section class="paper__letter" aria-label="招待状（紙切れ）">
+          <div class="letter">
+            <div class="letter__stamp">✶</div>
+            <pre id="acrosticText" class="letter__text" aria-label="英語の走り書き"></pre>
+            <div class="letter__note">（最初の文字を追え）</div>
+          </div>
+
+          <!-- MM/DD diagram pinned on bottom-right (responsive: moves under on small screens) -->
+          <aside class="diagram" aria-label="MM/DDの図">
+            <div class="diagram__card">
+              <div class="diagram__title">MM/DD</div>
+              <div class="diagram__row">
+                <span class="diagram__box">0</span><span class="diagram__box">2</span>
+                <span class="diagram__slash">/</span>
+                <span class="diagram__box">2</span><span class="diagram__box">7</span>
+              </div>
+              <div class="diagram__arrow">↓</div>
+              <div class="diagram__title diagram__title--small">mm/d</div>
+
+              <!-- Hidden annotations (revealed on hint) -->
+              <div id="diagramHints" class="diagram__hints" hidden>
+                <div class="diagram__hint">mm = 月をもう一度</div>
+                <div class="diagram__hint">d = 日は一桁だけ</div>
+              </div>
+            </div>
+
+            <!-- subtle "calculator" texture: blends into paper -->
+            <div class="calc-ghost" aria-hidden="true">
+              <div class="calc-ghost__keys">
+                <span>+</span><span>−</span><span>×</span><span>÷</span><span>=</span>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <!-- Password input -->
+        <section class="paper__unlock" aria-label="パスワード入力">
+          <div class="unlock">
+            <label class="unlock__label" for="pwInput">PASSWORD（数字3ケタ）</label>
+            <div class="unlock__row">
+              <input
+                id="pwInput"
+                class="unlock__input"
+                type="text"
+                inputmode="numeric"
+                autocomplete="one-time-code"
+                maxlength="3"
+                placeholder="例：314"
+                aria-describedby="pwHelp"
+              />
+              <button id="unlockBtn" class="btn btn--primary" type="button">UNLOCK</button>
+            </div>
+            <div id="pwHelp" class="unlock__help">※数字3ケタのみ（記号不可）</div>
+            <div id="pwMsg" class="unlock__msg" role="status" aria-live="polite"></div>
+          </div>
+        </section>
+
+        <!-- Hints (2 levels) -->
+        <section class="paper__hints" aria-label="ヒント">
+          <details class="hint" id="hint1">
+            <summary>ヒント1</summary>
+            <p id="hintText1"></p>
+          </details>
+
+          <details class="hint" id="hint2">
+            <summary>ヒント2</summary>
+            <p id="hintText2"></p>
+          </details>
+        </section>
+
+        <footer class="paper__footer">
+          <div class="stars">☆☆☆</div>
+        </footer>
+      </div>
+    </section>
+
+    <!-- Coming soon -->
+    <section id="screen-soon" class="screen" aria-label="本編">
+      <div class="paper paper--center">
+        <div class="soon">
+          <div class="soon__text">coming soon...</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Audio (must be triggered by user gesture; we play on unlock click) -->
+  <audio id="doorAudio" preload="auto">
+    <!-- ここに扉の音声ファイルを置いてください -->
+    <source src="./assets/door-open.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="./app.js"></script>
+</body>
+</html>
