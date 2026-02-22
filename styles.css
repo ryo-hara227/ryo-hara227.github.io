@@ -1,4 +1,4 @@
-/* styles.css */
+/* styles.css (REVISED) */
 :root{
   --bg: #f2e7d0;
   --paper: #efe2c6;
@@ -6,7 +6,6 @@
   --muted: rgba(31,26,20,.65);
   --shadow: rgba(0,0,0,.10);
   --shadow2: rgba(0,0,0,.06);
-  --accent: rgba(31,26,20,.88);
   --radius: 18px;
 }
 
@@ -204,7 +203,6 @@ body{
   transform: rotate(-4deg);
   pointer-events:none;
   background: linear-gradient(180deg, rgba(31,26,20,.35), rgba(31,26,20,.08));
-  filter: blur(.0px);
 }
 .calc-ghost__keys{
   height:100%;
@@ -337,4 +335,22 @@ body{
 .fade-overlay.is-on{
   opacity: 1;
   background: rgba(0,0,0,.55);
+}
+
+/* Reset button (small, unobtrusive) */
+.reset{
+  position:absolute;
+  right: 14px;
+  bottom: 12px;
+  border-radius: 999px;
+  padding: 8px 12px;
+  border: 1px solid rgba(31,26,20,.18);
+  background: rgba(255,255,255,.10);
+  color: rgba(31,26,20,.70);
+  font-weight: 800;
+  letter-spacing: .08em;
+  cursor:pointer;
+}
+.reset:hover{
+  background: rgba(255,255,255,.16);
 }
