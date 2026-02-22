@@ -1,4 +1,4 @@
-<!-- index.html -->
+<!-- index.html (REVISED) -->
 <!doctype html>
 <html lang="ja">
 <head>
@@ -33,7 +33,7 @@
           <div class="letter">
             <div class="letter__stamp">✶</div>
             <pre id="acrosticText" class="letter__text" aria-label="英語の走り書き"></pre>
-            <div class="letter__note">（最初の文字を追え）</div>
+            <div class="letter__note">（先頭にだけ、影が落ちる）</div>
           </div>
 
           <!-- MM/DD diagram pinned on bottom-right (responsive: moves under on small screens) -->
@@ -48,7 +48,7 @@
               <div class="diagram__arrow">↓</div>
               <div class="diagram__title diagram__title--small">mm/d</div>
 
-              <!-- Hidden annotations (revealed on hint) -->
+              <!-- Hidden annotations (revealed when hint is opened) -->
               <div id="diagramHints" class="diagram__hints" hidden>
                 <div class="diagram__hint">mm = 月をもう一度</div>
                 <div class="diagram__hint">d = 日は一桁だけ</div>
@@ -76,7 +76,7 @@
                 inputmode="numeric"
                 autocomplete="one-time-code"
                 maxlength="3"
-                placeholder="例：314"
+                placeholder="例：123"
                 aria-describedby="pwHelp"
               />
               <button id="unlockBtn" class="btn btn--primary" type="button">UNLOCK</button>
@@ -102,6 +102,9 @@
         <footer class="paper__footer">
           <div class="stars">☆☆☆</div>
         </footer>
+
+        <!-- Small reset (for your testing) -->
+        <button id="resetBtn" class="reset" type="button" aria-label="進捗リセット">RESET</button>
       </div>
     </section>
 
@@ -117,7 +120,6 @@
 
   <!-- Audio (must be triggered by user gesture; we play on unlock click) -->
   <audio id="doorAudio" preload="auto">
-    <!-- ここに扉の音声ファイルを置いてください -->
     <source src="./assets/door-open.mp3" type="audio/mpeg" />
   </audio>
 
