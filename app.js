@@ -1,18 +1,19 @@
-// app.js
+// app.js (REVISED)
 (() => {
   "use strict";
 
   /**
    * ここを編集すれば、文章・ヒント・パスワードはすぐ差し替え可能です。
-   * HTMLを触らずに変更できるようにしています。
    */
   const CONFIG = {
     storageKey: "wonderland_progress_v1",
-    // すぐ変えられるように：許容パスワードを配列で
+
+    // すぐ変えられるように：許容パスワードを配列で持つ
+    // 例）["314"] → ["271"] に差し替えるだけでOK
     allowedPasswords: ["314"],
 
     prologue: {
-      // アクロスティック英文（36語）。各単語の頭文字で
+      // アクロスティック英文（36語）：各単語の頭文字で
       // TODAY IS HER BIRTHDAY WHAT IS THE DATE TODAY
       acrostic: [
         "Tattered Oaken Doorway Awaits You;",
@@ -22,23 +23,21 @@
         "Date Alone Tells Everything Tonight; Only Decide Again, Yes."
       ].join("\n"),
 
-      hint1: "ここはありえないワンダーランドです。古の知識も現代の叡智も活用しなければ先には進めないでしょう。",
-      hint2: "「MM/DD」を「mm/d」に直してみよう。月は“重ねて”、日は“一桁だけ”。\n出てきた分数は「÷」の道具で。鍵は最初の3つ。"
+      // ヒントは露骨にしすぎない（必要なら後で文言差し替え）
+      hint1: "ここはありえないワンダーランド。古の知識も現代の叡智も活用しなければ先には進めないでしょう。",
+      hint2: "右下の式は、姿を変えることがある。大文字が小文字になったとき、見え方も変わる。\n最後は「÷」の道具。鍵は三つ、余計な飾りは持ち込めない。"
     },
 
     uiText: {
       wrong: "……違うようだ。もう一度。",
-      correct: "カチリ、と音がした。扉が開く。",
       invalid: "数字3ケタで入力してください。"
     },
 
-    // 演出
     effects: {
       fadeMs: 550
     }
   };
 
-  // Elements
   const $ = (sel) => document.querySelector(sel);
 
   const entrance = $("#screen-entrance");
@@ -56,22 +55,18 @@
   const unlockBtn = $("#unlockBtn");
   const pwMsg = $("#pwMsg");
   const doorAudio = $("#doorAudio");
+  const resetBtn = $("#resetBtn");
 
-  // Fade overlay (for door opening)
+  // Fade overlay
   const overlay = document.createElement("div");
   overlay.className = "fade-overlay";
   document.body.appendChild(overlay);
 
-  // Progress
   const defaultProgress = {
     prologueUnlocked: false,
     hint1Opened: false,
     hint2Opened: false,
-    // 将来、本編を足したとき用に拡張しやすい
-    game: {
-      chapter: "prologue",
-      // bigQ: 0, smallQ: 0, etc...
-    }
+    game: { chapter: "prologue" }
   };
 
   function loadProgress() {
@@ -89,9 +84,14 @@
     localStorage.setItem(CONFIG.storageKey, JSON.stringify(p));
   }
 
+  function resetProgress() {
+    localStorage.removeItem(CONFIG.storageKey);
+    location.reload();
+  }
+
   let progress = loadProgress();
 
-  // Render initial texts
+  // Render texts
   acrosticText.textContent = CONFIG.prologue.acrostic;
   hintText1.textContent = CONFIG.prologue.hint1;
   hintText2.textContent = CONFIG.prologue.hint2;
@@ -100,9 +100,8 @@
   if (progress.hint1Opened) hint1.open = true;
   if (progress.hint2Opened) hint2.open = true;
 
-  // Reveal diagram annotations only after hint is opened (per your spec)
-  // We show annotations when hint2 is opened (stronger), but you can change to hint1 if you want.
-  if (progress.hint2Opened) diagramHints.hidden = false;
+  // Reveal diagram annotations only after hint2 is opened (your spec)
+  diagramHints.hidden = !progress.hint2Opened;
 
   hint1.addEventListener("toggle", () => {
     progress.hint1Opened = hint1.open;
@@ -111,12 +110,11 @@
 
   hint2.addEventListener("toggle", () => {
     progress.hint2Opened = hint2.open;
-    // When hint2 opens, reveal diagram notes
     diagramHints.hidden = !hint2.open;
     saveProgress(progress);
   });
 
-  // Input: allow only digits; 3 chars max
+  // Input: only digits; 3 chars max
   pwInput.addEventListener("input", () => {
     pwInput.value = pwInput.value.replace(/[^\d]/g, "").slice(0, 3);
     pwMsg.textContent = "";
@@ -131,7 +129,7 @@
     soon.classList.toggle("is-active", which === "soon");
   }
 
-  // If already unlocked, skip to coming soon
+  // Skip if already unlocked
   if (progress.prologueUnlocked) {
     setScreen("soon");
   } else {
@@ -140,11 +138,10 @@
 
   async function playDoorSound() {
     try {
-      // Some browsers require user gesture; this is called from click handler, so OK.
       doorAudio.currentTime = 0;
       await doorAudio.play();
     } catch {
-      // ignore (no audio available / blocked)
+      // ignore
     }
   }
 
@@ -152,7 +149,6 @@
     overlay.classList.add("is-on");
     window.setTimeout(() => {
       setScreen("soon");
-      // fade back a bit (optional)
       overlay.classList.remove("is-on");
     }, CONFIG.effects.fadeMs);
   }
@@ -165,15 +161,14 @@
       return;
     }
 
-    const ok = CONFIG.allowedPasswords.includes(v);
-
-    if (!ok) {
+    if (!CONFIG.allowedPasswords.includes(v)) {
       pwMsg.textContent = CONFIG.uiText.wrong;
       return;
     }
 
-    // correct
-    pwMsg.textContent = CONFIG.uiText.correct;
+    // Correct: no "door opened" message (per your request)
+    pwMsg.textContent = "";
+
     progress.prologueUnlocked = true;
     progress.game.chapter = "soon";
     saveProgress(progress);
@@ -182,6 +177,8 @@
     fadeTransitionToSoon();
   });
 
-  // Expose a tiny dev helper (optional): reset progress from console
-  // window.__WL_RESET = () => { localStorage.removeItem(CONFIG.storageKey); location.reload(); };
+  resetBtn.addEventListener("click", () => {
+    const ok = confirm("進捗をリセットしますか？（テスト用）");
+    if (ok) resetProgress();
+  });
 })();
