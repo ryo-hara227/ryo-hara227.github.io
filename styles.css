@@ -1,4 +1,3 @@
-/* styles.css (REVISED) */
 :root{
   --bg: #f2e7d0;
   --paper: #efe2c6;
@@ -72,146 +71,40 @@ body{
   margin: 0 auto 14px;
   max-width: 44em;
   font-size: clamp(14px, 2.2vw, 18px);
-  line-height: 1.8;
-}
-.rule{
-  margin: 14px auto 0;
-  max-width: 46em;
-  padding: 14px 16px;
-  border-radius: 14px;
-  background: rgba(255,255,255,.20);
-  border: 1px dashed rgba(31,26,20,.18);
-}
-.rule__title{
-  margin:0 0 6px;
-  font-weight: 700;
-  letter-spacing: .06em;
-}
-.rule__text{
-  margin:0;
-  line-height: 1.75;
+  line-height: 1.9;
 }
 
-/* Letter area */
-.paper__letter{
+/* Notice area */
+.paper__notice{
   margin-top: 18px;
-  display:grid;
-  grid-template-columns: 1fr 260px;
-  gap: 18px;
-  align-items: start;
 }
-@media (max-width: 780px){
-  .paper__letter{ grid-template-columns: 1fr; }
-}
-
-.letter{
-  position:relative;
+.notice{
   padding: 18px 18px 16px;
   border-radius: 16px;
   background: rgba(255,255,255,.12);
-  border: 1px solid rgba(31,26,20,.12);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+  border: 1px dashed rgba(31,26,20,.18);
 }
-.letter__stamp{
-  position:absolute;
-  top: 10px;
-  left: 12px;
-  opacity:.28;
-  font-size: 18px;
+.notice__title{
+  margin: 0 0 10px;
+  text-align: center;
+  font-size: clamp(20px, 3.2vw, 28px); /* ようこそより少し小さく */
+  font-weight: 800;
+  letter-spacing: .06em;
 }
-.letter__text{
+.notice__body{
+  max-width: 52em;
+  margin: 0 auto;
+  font-size: clamp(14px, 2.05vw, 17px);
+  line-height: 1.95;
+}
+.notice__body p{
   margin: 0;
-  padding-top: 10px;
-  white-space: pre-wrap;
-  font-family: ui-serif, "Times New Roman", "Noto Serif", serif;
-  font-size: clamp(13px, 1.8vw, 16px);
-  line-height: 1.65;
-  color: rgba(31,26,20,.92);
 }
-.letter__note{
-  margin-top: 10px;
-  font-size: 12px;
-  color: var(--muted);
-}
-
-/* Diagram */
-.diagram{
-  position:relative;
-  justify-self: end;
-}
-.diagram__card{
-  padding: 14px 14px 12px;
-  border-radius: 16px;
-  background: rgba(255,255,255,.10);
-  border: 1px solid rgba(31,26,20,.14);
-}
-.diagram__title{
-  text-align:center;
-  font-weight: 800;
-  letter-spacing: .08em;
-  margin-bottom: 10px;
-}
-.diagram__title--small{
+.notice__body p + p{
   margin-top: 6px;
-  font-size: 14px;
-  opacity: .9;
 }
-.diagram__row{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap: 6px;
-}
-.diagram__box{
-  width: 28px;
-  height: 32px;
-  display:grid;
-  place-items:center;
-  border: 1px solid rgba(31,26,20,.22);
-  border-radius: 8px;
-  background: rgba(255,255,255,.08);
-  font-weight: 800;
-}
-.diagram__slash{
-  font-weight: 900;
-  opacity: .7;
-}
-.diagram__arrow{
-  text-align:center;
-  margin: 8px 0 4px;
-  opacity: .55;
-}
-.diagram__hints{
-  margin-top: 10px;
-  padding-top: 8px;
-  border-top: 1px dashed rgba(31,26,20,.20);
-}
-.diagram__hint{
-  font-size: 12px;
-  line-height: 1.5;
-  color: rgba(31,26,20,.82);
-}
-
-/* Subtle calculator hint */
-.calc-ghost{
-  position:absolute;
-  inset: auto 8px -10px auto;
-  width: 170px;
-  height: 70px;
-  border-radius: 14px;
-  opacity: .10;
-  transform: rotate(-4deg);
-  pointer-events:none;
-  background: linear-gradient(180deg, rgba(31,26,20,.35), rgba(31,26,20,.08));
-}
-.calc-ghost__keys{
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:space-evenly;
-  color: rgba(255,255,255,.85);
-  font-weight: 900;
-  letter-spacing: .12em;
+.notice__spacer{
+  height: 10px;
 }
 
 /* Unlock */
@@ -237,6 +130,7 @@ body{
 }
 .unlock__input{
   flex:1;
+  min-width: 0;
   height: 44px;
   border-radius: 14px;
   border: 1px solid rgba(31,26,20,.22);
@@ -249,8 +143,13 @@ body{
 .unlock__input:focus{
   border-color: rgba(31,26,20,.45);
 }
+.unlock__button{
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
 .unlock__help{
   margin-top: 8px;
+  min-height: 1em;
   font-size: 12px;
   color: var(--muted);
 }
@@ -279,29 +178,6 @@ body{
   border-color: rgba(31,26,20,.25);
 }
 .btn:disabled{ opacity:.55; cursor:not-allowed; }
-
-/* Hints */
-.paper__hints{
-  margin-top: 14px;
-  display:grid;
-  gap: 10px;
-}
-.hint{
-  border-radius: 14px;
-  border: 1px dashed rgba(31,26,20,.18);
-  background: rgba(255,255,255,.10);
-  padding: 10px 12px;
-}
-.hint summary{
-  cursor:pointer;
-  font-weight: 900;
-  letter-spacing: .06em;
-}
-.hint p{
-  margin: 10px 0 0;
-  line-height: 1.75;
-  color: rgba(31,26,20,.88);
-}
 
 /* Footer */
 .paper__footer{
@@ -337,7 +213,7 @@ body{
   background: rgba(0,0,0,.55);
 }
 
-/* Reset button (small, unobtrusive) */
+/* Reset button */
 .reset{
   position:absolute;
   right: 14px;
@@ -353,4 +229,51 @@ body{
 }
 .reset:hover{
   background: rgba(255,255,255,.16);
+}
+
+/* Responsive fixes for smartphones */
+@media (max-width: 640px){
+  .app{
+    padding: 14px 8px;
+    align-items: flex-start;
+  }
+
+  .paper{
+    padding: 16px 14px 54px;
+  }
+
+  .paper__title{
+    margin-top: 2px;
+  }
+
+  .paper__lead{
+    line-height: 1.75;
+  }
+
+  .notice__body{
+    line-height: 1.8;
+  }
+
+  /* ★ UNLOCKは縦並びにしてはみ出し防止 */
+  .unlock__row{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .unlock__button{
+    width: 100%;
+    justify-self: stretch;
+  }
+
+  .btn{
+    width: 100%;
+  }
+
+  .reset{
+    bottom: 10px;
+    right: 10px;
+    padding: 7px 10px;
+    font-size: 12px;
+  }
 }
