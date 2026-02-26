@@ -5,7 +5,7 @@
     storageKey: "wonderland_progress_v1",
 
     // すぐ変えられるように：許容パスワード配列
-    allowedPasswords: ["314"],
+    allowedPasswords: ["227"],
 
     uiText: {
       wrong: "……違うようだ。もう一度。",
