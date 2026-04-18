@@ -3,23 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Wonderland Gate</title>
+  <title>ぱかの輪presents "推しのいない世界からの脱出"</title>
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
   <main id="app" class="app">
-    <!-- Entrance / Prologue -->
+    <!-- Entrance -->
     <section id="screen-entrance" class="screen is-active" aria-label="入口">
-      <div class="paper">
+      <div class="paper paper--gate">
         <header class="paper__header">
           <h1 class="paper__title">ようこそ</h1>
           <p class="paper__lead">
-            あなた宛の「招待状」を読んで、扉を開けよう<br/>
+            あなた宛の「招待状」を読んで、扉を開けよう<br />
             ワンダーランドを目指して…
           </p>
         </header>
 
-        <!-- Notice box (reconstructed from old instruction/letter area) -->
         <section class="paper__notice" aria-label="注意事項">
           <div class="notice">
             <h2 class="notice__title">注意</h2>
@@ -35,7 +34,6 @@
           </div>
         </section>
 
-        <!-- Password input -->
         <section class="paper__unlock" aria-label="パスワード入力">
           <div class="unlock">
             <label class="unlock__label" for="pwInput">PASSWORD（数字3ケタ）</label>
@@ -61,14 +59,41 @@
           <div class="stars">☆☆☆</div>
         </footer>
 
-        <!-- Small reset (for testing) -->
         <button id="resetBtn" class="reset" type="button" aria-label="進捗リセット">RESET</button>
       </div>
     </section>
 
-    <!-- Coming soon -->
-    <section id="screen-soon" class="screen" aria-label="本編">
-      <div class="paper paper--center">
+    <!-- Warning -->
+    <section id="screen-warning" class="screen" aria-label="注意書き">
+      <div class="paper paper--story">
+        <div class="chapter-head">
+          <div class="chapter-head__sub">ぱかの輪 presents</div>
+          <h1 class="chapter-head__title">⚠️注意！！⚠️</h1>
+        </div>
+
+        <div id="warningContent" class="story-box"></div>
+
+        <div class="nav-row">
+          <button id="warningNextBtn" class="btn btn--primary" type="button">次へ</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prologue -->
+    <section id="screen-prologue" class="screen" aria-label="プロローグ">
+      <div class="paper paper--story">
+        <div id="prologueContent" class="story-box story-box--prologue"></div>
+
+        <div class="nav-row nav-row--story">
+          <button id="prologuePrevBtn" class="btn btn--ghost" type="button">戻る</button>
+          <button id="prologueNextBtn" class="btn btn--primary" type="button">次へ</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Temporary placeholder until chapter 1 -->
+    <section id="screen-soon" class="screen" aria-label="第一章前">
+      <div class="paper paper--center paper--story">
         <div class="soon">
           <div class="soon__text">coming soon...</div>
         </div>
@@ -76,7 +101,6 @@
     </section>
   </main>
 
-  <!-- Audio -->
   <audio id="doorAudio" preload="auto">
     <source src="./assets/door-open.mp3" type="audio/mpeg" />
   </audio>
