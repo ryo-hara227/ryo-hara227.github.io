@@ -59,7 +59,7 @@
           <div class="stars">☆☆☆</div>
         </footer>
 
-        <button id="resetBtn" class="reset" type="button" aria-label="進捗リセット">RESET</button>
+        <button id="resetBtnEntrance" class="reset" type="button" aria-label="進捗リセット">RESET</button>
       </div>
     </section>
 
@@ -82,6 +82,10 @@
     <!-- Prologue -->
     <section id="screen-prologue" class="screen" aria-label="プロローグ">
       <div class="paper paper--story">
+        <div class="chapter-head">
+          <div class="chapter-head__sub">Prologue</div>
+        </div>
+
         <div id="prologueContent" class="story-box story-box--prologue"></div>
 
         <div class="nav-row nav-row--story">
@@ -91,8 +95,25 @@
       </div>
     </section>
 
-    <!-- Temporary placeholder until chapter 1 -->
-    <section id="screen-soon" class="screen" aria-label="第一章前">
+    <!-- Chapters -->
+    <section id="screen-chapter" class="screen" aria-label="本編">
+      <div class="paper paper--story">
+        <div class="chapter-head">
+          <div id="chapterNumber" class="chapter-head__sub"></div>
+          <h1 id="chapterTitle" class="chapter-head__title"></h1>
+        </div>
+
+        <div id="chapterContent"></div>
+
+        <div id="chapterNav" class="nav-row nav-row--story">
+          <button id="chapterPrevBtn" class="btn btn--ghost" type="button">戻る</button>
+          <button id="chapterNextBtn" class="btn btn--primary" type="button">次へ</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Temporary placeholder -->
+    <section id="screen-soon" class="screen" aria-label="続き">
       <div class="paper paper--center paper--story">
         <div class="soon">
           <div class="soon__text">coming soon...</div>
@@ -104,6 +125,8 @@
   <audio id="doorAudio" preload="auto">
     <source src="./assets/door-open.mp3" type="audio/mpeg" />
   </audio>
+
+  <button id="globalResetBtn" class="global-reset" type="button">RESET</button>
 
   <script src="./app.js"></script>
 </body>
