@@ -2,15 +2,13 @@
   "use strict";
 
   const CONFIG = {
-    storageKey: "wonderland_progress_v2",
-
+    storageKey: "wonderland_progress_v4",
     allowedPasswords: ["314"],
-
     uiText: {
       wrong: "……違うようだ。もう一度。",
-      invalid: "数字3ケタで入力してください。"
+      invalid: "数字3ケタで入力してください。",
+      correct: "解読済み"
     },
-
     effects: {
       fadeMs: 550
     },
@@ -45,44 +43,772 @@
     prologuePages: [
       [
         "我らが推し、りえりーこと高橋李依の2nd Liveが、数時間後に迫っている。",
-        "アーティストデビュー5周年という節目に迎える晴れ舞台。準備は万端だ。",
-        "「手紙は書いたし、忘れ物もなし。よし、行くか～」",
+        "アーティストデビュー5周年という節目に迎える、特別な晴れ舞台。",
+        "今日という日を迎えるために、準備は万端だった。",
+        "「手紙は書いたし、忘れ物もなし。よし、行くか〜」",
         "あなたは最寄り駅へ向かう。",
-        "毎日歩くはずの道も、今日だけは少し華やいで見える。"
+        "毎日歩いているはずの道も、今日だけは少し華やいで見える。",
+        "いつもの街並みも、駅へ向かう足取りも、どこか浮き立っていた。"
       ],
       [
         "電車に揺られてしばらくすると、川崎駅に到着した。",
-        "「着いた着いた～。早めに出て正解だったかも」",
-        "何事もなく着けたことにほっとした、そのとき…"
+        "「着いた着いた〜。早めに出て正解だったかも」",
+        "何事もなく着けたことに、ひとまず胸をなで下ろす。"
       ],
       [
-        "ふと視界の端に、見覚えのある姿が映る。",
+        "そのときだった。",
+        "ふと視界の端に、見覚えのある姿が映った。",
         "黄色いワンピースに、白いヒール。",
-        "そこに立っていたのは、あなたのよく知る人物…によく似た女性だった。",
+        "人混みの中に立っていたのは、あなたのよく知る人物――によく似た女性だった。",
         "「え、もしかして……りえりー？」",
         "背丈も、雰囲気も、驚くほどよく似ている。",
-        "けれど、この時間なら本番に向けてリハーサルをしているはず。",
-        "こんな場所にいるなんて、ありえない。"
+        "でも、そんなはずがない。",
+        "この時間なら、きっと本番に向けてリハーサルをしているはずだ。",
+        "こんな場所にいるなんて、ありえない。",
+        "「……まあ、見間違いか。みんなも待ってるし、会場に行くか〜」",
+        "そう自分に言い聞かせて、改札を出る。"
       ],
       [
-        "「……まあ、見間違いか。みんな待ってるし、会場に行くか～」",
-        "そう自分に言い聞かせ、改札を出て歩き出す。"
-      ],
-      [
-        "けれど会場に向かう足取りは重くなっていった。胸の奥に引っかかる違和感が消えない。",
+        "けれど、会場へ向かう足取りは、少しずつ重くなっていった。",
+        "胸の奥に引っかかった違和感が、どうしても消えてくれない。",
         "――やっぱり、あの人が気になる。",
         "気づけばあなたは、何かに引き寄せられるように、その女性のあとを追っていた。",
-        "「待って！」",
-        "夢中で走っていたあなたは、足元の穴に全く気がつかなかった。"
+        "「待って！」"
       ],
       [
-        "「やばい、落ちる！！」",
-        "開いたままのマンホール。気づいたときにはもう遅かった。",
-        "あなたの身体は暗闇へと真っ逆さまに落ちていく。見上げると、さっきまでいた地上の光が、どんどん小さく遠ざかっていった。"
+        "夢中で走っていたあなたは、足元の異変にまったく気づかなかった。",
+        "「え、ちょっ――」",
+        "開いたままのマンホール。",
+        "気づいたときには、もう遅かった。",
+        "「やばい、落ちる！！」"
       ],
       [
-        "しばらくして――大きな音とともに、あなたの意識は闇に沈んだ。"
+        "あなたの身体は、暗闇の中へ真っ逆さまに落ちていく。",
+        "見上げると、さっきまでいた地上の光が、どんどん小さく、遠くなっていった。",
+        "そして、しばらくして――",
+        "大きな音とともに、あなたの意識は闇に沈んだ。"
       ]
+    ],
+
+    chapters: [
+      {
+        id: "chapter1",
+        number: "第1章",
+        title: "2021年",
+        sections: [
+          {
+            type: "story",
+            pages: [
+              [
+                "目を覚ますと、そこはどこか見覚えのある浜辺だった。",
+                "強い風が吹きつけ、潮の匂いが鼻をかすめる。",
+                "波の音が、遠くから絶え間なく聞こえていた。",
+                "「ここ……どこ？」",
+                "あたりを見回しても、川崎駅の面影はどこにもない。",
+                "会場へ向かっていたはずなのに、なぜかあなたは、見知らぬ浜辺に立っていた。",
+                "しばらく歩いていると、黒いワンピースをまとい、風に吹かれて立つ一人の女性が目に入った。",
+                "「すみません。ちょっとお話を……」",
+                "声をかけても、返事はない。",
+                "「すみませーん！」",
+                "少し大きな声で呼びかけてみても、その女性はこちらを振り向こうとしなかった。",
+                "不審に思い、思い切って肩に手を伸ばしかけた、その瞬間。",
+                "「やめてやめて！」",
+                "女性が勢いよく振り向き、声を上げた。",
+                "「なんだ、気づいてるじゃないですか。なんで無視するんです？」",
+                "「だってあなた、怪しいんだもん」",
+                "その声を聞いた瞬間、あなたは息をのむ。",
+                "「あなた、もしかして、り――」",
+                "「おーっと、それ以上はダメだよ〜」",
+                "「えっ？」",
+                "困惑するあなたに、女性はどこか楽しそうな顔を向けた。"
+              ],
+              [
+                "話を聞くうちに、少しずつ状況が見えてくる。",
+                "どうやら、ここはあなたがいた現実世界ではないらしい。",
+                "しかも今日は――2021年。",
+                "まるで、過去にタイムスリップしてしまったかのようだった。",
+                "「お願いです。今日は大事なライブがあるんです。早く行かないと！」",
+                "「ふ〜ん。へ〜」",
+                "女性は、面白いものを見るように、あなたをじっと見つめる。",
+                "「なんですか、急に」",
+                "「なんでもなーい」",
+                "「なんだか、ご満悦じゃないですか」",
+                "だめだ。可愛すぎる。"
+              ],
+              [
+                "そこでようやく、あなたは思い出す。",
+                "目の前にいる存在は、限りなく“推し”に近い相手なのだ。",
+                "すると女性は、少しだけ声の調子を変えて言った。",
+                "「でも、大切にしてくれているあなたになら、いいことを教えてあげる」",
+                "「いいこと？」",
+                "「先に進むには、“あるもの”が必要らしいよ」",
+                "「あるもの？」",
+                "「この紙の謎が解けたら、分かるんじゃないかな？」",
+                "そう言って彼女が手渡してきたのは、何枚かの紙だった。",
+                "あなたは紙を見つめ、ひとつ息をのむ。",
+                "どうやら、ここから先へ進むには、この謎を解くしかないらしい。"
+              ]
+            ]
+          },
+          {
+            type: "puzzleGroup",
+            id: "chapter1-main",
+            intro: [
+              "受け取った紙には、5つの謎が書かれていた。",
+              "すべての答えを導き、最後の謎へ進もう。"
+            ],
+            items: [
+              {
+                id: "1-1",
+                title: "1-1",
+                image: "assets/chapter1/1-1.png",
+                answers: ["カメレオン", "かめれおん"],
+                hints: ["イラストの示すものを考えましょう。三つ目のイラストは「レ」です。"]
+              },
+              {
+                id: "1-2",
+                title: "1-2",
+                image: "assets/chapter1/1-2.png",
+                answers: ["Uうつ", "uうつ", "U撃つ", "u撃つ", "ユーうつ", "ゆーうつ", "ユー撃つ", "ゆー撃つ"],
+                hints: ["Uを反時計回りに短針3時間分、つまり90°回してみましょう。「U」は「つ」になります。"]
+              },
+              {
+                id: "1-3",
+                title: "1-3",
+                image: "assets/chapter1/1-3.png",
+                answers: ["ふけんこう", "フケンコウ", "不健康"],
+                hints: ["１とその数自身でしか割れない数のことを素数といいますよね。素数の文字数(2, 3, 5, 7, 11文字目)のところを左から繋げて現れる5文字が答えです。"]
+              },
+              {
+                id: "1-4",
+                title: "1-4",
+                image: "assets/chapter1/1-4.png",
+                answers: ["じしゃく", "ジシャク", "磁石"],
+                hints: ["砂場にこれを突っ込んで砂鉄集め…なんてやったことあるかも？冷蔵庫にはよく貼ってありますよね。これを使って方角を調べることもできます。"]
+              },
+              {
+                id: "1-5",
+                title: "1-5",
+                image: "assets/chapter1/1-5.png",
+                answers: ["ハウメニィ", "はうめにぃ", "ハウメニイ", "はうめにい"],
+                hints: ["うしは英語でcow、弓は英語でbowと言います。地図はmap、メールはmailです。視覚に当てはまるアルファベットはそれぞれなんでしょうか？"]
+              }
+            ],
+            final: {
+              id: "1-last",
+              title: "最後の謎",
+              image: "assets/chapter1/1-last.png",
+              answers: ["透明な付箋", "透明なふせん", "とうめいなふせん", "トウメイナフセン"],
+              hints: [
+                "見るを言い換えてみましょう。",
+                "見るを「目にする」と言い換えると「3を目にして読んだものが答え」と言い換えることができます。",
+                "あとはそれぞれの数字を言い換えましょう。10は「とお」とも言います。"
+              ]
+            }
+          },
+          {
+            type: "story",
+            pages: [
+              [
+                "「なるほど……透明な付箋か」",
+                "あなたがそうつぶやくと、彼女はぱっと顔を明るくした。",
+                "「それなら私、持ってるよ！」",
+                "「え、本当ですか？」",
+                "「はい、どうぞ！」",
+                "そう言って手渡されたのは――",
+                "「……これ、透明な付箋ですね」",
+                "「そうだよ？」",
+                "「いや、これは……その、たくさん持ってる方の透明な付箋です」",
+                "それは…、1st EP『透明な付箋』だった。",
+                "「これにヒントがある感じですか？」",
+                "「あ、違った！ごめんごめん！本当に必要なのは、こっち！」",
+                "今度こそ彼女が手渡してくれたのは、文字通り透明な付箋だった。",
+                "透き通っていて、まだ何色にも染まっていない付箋。",
+                "「ありがとうございます。これって、どう使うんですか？」",
+                "彼女は少し考えてから、にこっと笑った。",
+                "「そ・れ・は！あなた次第だよ〜」",
+                "「えぇ……」"
+              ],
+              [
+                "「先を急いでるんでしょ？そこに駅があるから。ほら、行って」",
+                "そう言って、彼女はあなたの背中を軽く押した。",
+                "推しに背中を押された。",
+                "その事実だけで、あなたは嬉しさのあまり気絶しそうになる。"
+              ],
+              [
+                "そのとき、ふと耳元で声がした。",
+                "「どうか、未来の私を助けてあげてね」",
+                "「えっ？」",
+                "慌てて振り返る。",
+                "けれど、そこにはもう誰もいなかった。",
+                "潮風だけが、さっきまで彼女がいた場所を通り抜けていく。",
+                "あなたはCDと透明な付箋を握りしめ、駅へ向かって走り出した。"
+              ],
+              [
+                "電車に乗り込んだあなた。",
+                "次の行き先は……"
+              ]
+            ]
+          },
+          {
+            type: "singlePuzzle",
+            id: "1-route",
+            title: "次の行き先",
+            image: "assets/chapter1/1-route.png",
+            answers: ["灰被", "はいかぶり", "ハイカブリ"],
+            hints: []
+          }
+        ]
+      },
+
+      {
+        id: "chapter2",
+        number: "第2章",
+        title: "2023年",
+        sections: [
+          {
+            type: "story",
+            pages: [
+              [
+                "電車に揺られてたどり着いた先は、どこか見慣れた街だった。",
+                "駅前の大きな交差点。",
+                "立ち並ぶ背の高い建物。",
+                "人の波と、絶えず流れていく街の音。",
+                "「ここ……渋谷じゃん！」",
+                "どう見ても渋谷だった。",
+                "もちろん、あなたの知っている渋谷とまったく同じというわけではない。",
+                "灰被なんて地名は聞いたこともないし…",
+                "それでも、この景色には見覚えがありすぎる。"
+              ],
+              [
+                "「ということは、向かうべき場所は……」",
+                "心当たりはあった。",
+                "あなたにとっても、忘れられないあの場所。",
+                "歩き慣れているわけではないのに、不思議と足はそちらへ向かっていく。"
+              ],
+              [
+                "しばらく歩いていると、青と白のドレスをまとった女性が目に入った。",
+                "その背格好。",
+                "その歩き方。",
+                "そして、どこか楽しそうに街を見回す横顔。",
+                "「……間違いないな」",
+                "どう見ても、りえりーだった。",
+                "あなたは意を決して、彼女に声をかける。",
+                "「すみません！りえりーですよね？」",
+                "女性はぴたりと足を止めた。",
+                "そして、ゆっくりこちらを振り返る。",
+                "「はて？なんのことかな？」",
+                "嘘が下手である。",
+                "ごまかせていない。",
+                "でも、それはそれで可愛い。"
+              ],
+              [
+                "「いや、絶対そうですよね」",
+                "「知らないな〜。人違いじゃないかな〜」",
+                "「じゃあ、なんでそんなに楽しそうなんですか」",
+                "「えへへ」",
+                "ごまかす気があるのかないのか、よくわからない。",
+                "すると彼女は、急にこちらをじっと見つめて言った。",
+                "「それはそうと、君。私に聞きたいことがあるんじゃないの？」",
+                "「どうしてそれを？」",
+                "「見てればわかるよ。なんだか、とっても困った顔をしてる」",
+                "そう言われて、あなたは言葉に詰まる。",
+                "たしかに、困っていた。",
+                "自分がどこにいるのかも、どうすれば元の世界に戻れるのかも、何ひとつわかっていない。",
+                "「実は……」",
+                "あなたは、ここに来るまでの出来事を話した。"
+              ],
+              [
+                "川崎駅で、彼女によく似た女性を見かけたこと。",
+                "そのあとを追いかけて、マンホールに落ちたこと。",
+                "気づいたら2021年のような場所にいて、黒いワンピースの女性から透明な付箋を受け取ったこと。",
+                "そして、その付箋に導かれるように、この街へ来たこと。",
+                "彼女は、途中で茶化すこともなく、最後まで静かに聞いてくれた。",
+                "「なるほど。つまりあなたは、ここではない世界の未来からやってきたってわけですか……」",
+                "「自分でも信じられないんですけど、たぶん、そういうことだと思います」",
+                "「そっか」",
+                "彼女は少し考え込むように、青いドレスの裾を揺らした。",
+                "「どうすれば元の世界に戻れるのか、全然わからなくて……」",
+                "「そういえば」",
+                "彼女は何かを思い出したように顔を上げた。"
+              ],
+              [
+                "「こんなものを拾ったんだけど、何か関係あるのかな？」",
+                "そう言って差し出されたのは、またしても紙が数枚。",
+                "「もしかして……また謎！？」",
+                "どうやら、この世界では、先へ進むために謎を解くしかないらしい。",
+                "あなたは彼女に向き直り、頭を下げた。",
+                "「お願いです。力を貸してください！」",
+                "「え〜？私が役に立てる保証はないよ〜？」",
+                "「それでも、一人よりは絶対に心強いです」",
+                "彼女は少しだけ驚いたように目を丸くして、それからふっと笑った。",
+                "「……まあ、頼まれたからにはやらないとね」",
+                "「ありがとうございます！」",
+                "「私のオタクくんの頼みだし」",
+                "「もう隠す気ないですよね？」",
+                "「さあ、どうでしょう？」",
+                "そう言って彼女は、地図と青い紙をあなたの前に広げた。"
+              ]
+            ]
+          },
+          {
+            type: "puzzleGroup",
+            id: "chapter2-main",
+            intro: [
+              "彼女と一緒に、紙に書かれた謎を解こう。",
+              "すべての答えが揃えば、最後の答えへたどり着けるはずだ。"
+            ],
+            items: [
+              { id: "2-1", title: "2-1", image: "assets/chapter2/2-1.png", answers: ["きょうかん", "キョウカン"], hints: [] },
+              { id: "2-2", title: "2-2", image: "assets/chapter2/2-2.png", answers: ["さいつよ", "サイツヨ"], hints: [] },
+              { id: "2-3", title: "2-3", image: "assets/chapter2/2-3.png", answers: ["かんしゃ", "カンシャ", "感謝"], hints: [] },
+              { id: "2-4", title: "2-4", image: "assets/chapter2/2-4.png", answers: ["BABURU"], answerMode: "alpha", hints: [] },
+              { id: "2-5", title: "2-5", image: "assets/chapter2/2-5.png", answers: ["0のひと匙", "0のひとさじ", "0ノヒトサジ", "0のヒトサジ", "0ノヒト匙"], hints: [] },
+              { id: "2-6", title: "2-6", image: "assets/chapter2/2-6.png", answers: ["インクルージョン", "いんくるーじょん", "インクルージヨン", "いんくるうじょん"], hints: [] }
+            ],
+            final: {
+              id: "2-last",
+              title: "最後の謎",
+              image: "assets/chapter2/2-last.png",
+              answers: ["青を生きる", "あおをいきる", "アオヲイキル", "aowoiikiru", "ao wo ikiru", "aooikiru"],
+              hints: []
+            }
+          },
+          {
+            type: "story",
+            pages: [
+              [
+                "一人では気づけなかったことも、二人でなら見えてくる。",
+                "見落としていた小さな違和感も、彼女の一言で意味を持ちはじめる。",
+                "「あ、もしかして、ここをこう見るんじゃないですか？」",
+                "「おお〜！いいねいいね！」",
+                "「じゃあ、この青い紙は……」",
+                "「こっちに重ねる、とか？」",
+                "「それだ！」",
+                "気づけば、あなたは夢中になっていた。",
+                "目の前にいるのが“推し”に限りなく近い相手だということを、忘れたわけではない。",
+                "でも、それ以上に、今はただ一緒に謎を解いている時間が楽しかった。",
+                "そして、最後の答えにたどり着いた瞬間。",
+                "「解けた！」",
+                "あなたは思わず声を上げた。"
+              ],
+              [
+                "「これで、元の世界に帰れる……！」",
+                "「本当！？よかったね〜！」",
+                "彼女も、自分のことのように嬉しそうに笑った。",
+                "「それじゃあ、気をつけて行くんだよ」",
+                "「はい。本当にありがとうございました」",
+                "「未来の私にもよろしく伝えておいて」",
+                "「え？」",
+                "「ファンレターでも、歓声でも、なんでもいいからさ」",
+                "彼女はそう言って、いたずらっぽく笑った。",
+                "「もう隠さないんですね」",
+                "「だって、隠す必要ないじゃん。バレてるんでしょ〜？」",
+                "この人といると自然と笑顔になってくる。何より楽しい。",
+                "そういうところが自分は好きなんだろうな。",
+                "あなたは改めてそう思った。"
+              ],
+              [
+                "「それじゃあ、私は帰ります！」",
+                "「うん。そっちも元気で」",
+                "彼女は少しだけ手を振って、続けた。",
+                "「気が向いたら、また私に会いにきてね」"
+              ],
+              [
+                "その言葉の意味を、そのときのあなたはまだ知らなかった。",
+                "「はい！絶対また会いに行きます！」",
+                "そう答えると、彼女は満足そうに笑った。",
+                "あなたは青い紙を握りしめ、元の世界へ戻るために歩き出す。"
+              ],
+              [
+                "その背中を見送る彼女の声が、ぽつりと風に溶けた。",
+                "「……結局私、またカッコつけちゃったな」"
+              ],
+              [
+                "その小さな独り言は、あなたの耳には届かなかった。",
+                "届かなかったからこそ、あなたはまだ気づけなかった。"
+              ],
+              {
+                emphasis: true,
+                text: "本当に救わなければならないものが\nまだ残されていることに。"
+              }
+            ]
+          }
+        ]
+      },
+
+      {
+        id: "chapter3",
+        number: "第3章",
+        title: "2026年？",
+        sections: [
+          {
+            type: "story",
+            pages: [
+              [
+                "「さて、今度こそライブに行くぞ〜！」",
+                "あなたは勢いよく顔を上げた。",
+                "目の前にあるのは、見慣れた川崎の街並み。",
+                "スマホの時計を確認しても、開演まではまだ十分に余裕がある。",
+                "「よかった……間に合った……！」",
+                "2021年の浜辺。",
+                "2023年の渋谷に似た街。",
+                "そこで起きた出来事を思い返すと、今こうして川崎に立っていることが、少しだけ信じられなかった。",
+                "けれど、そんな感傷に浸っている場合ではない。",
+                "今日は、りえりーの2nd Live当日なのだ。",
+                "あなたは急ぎ足で、ライブ会場へ向かった。"
+              ],
+              [
+                "しばらく歩くと、目的地が見えてくる。",
+                "「着いた……！」",
+                "会場の前に立ったあなたは、ほっと息をついた。",
+                "しかし、すぐに違和感を覚える。",
+                "「……あれ？」"
+              ],
+              [
+                "人がいない。",
+                "開場前なら、もう少しファンの姿があってもいいはずだ。",
+                "グッズを身につけた人も、待ち合わせをしている人も、スタッフらしき人も見当たらない。",
+                "「みんな、まだ来てないのかな？」",
+                "そう思って、あなたはしばらく待つことにした。",
+                "けれど、数分経っても、状況は何も変わらなかった。",
+                "会場前は静まり返ったまま。",
+                "風の音だけが、妙にはっきりと聞こえる。",
+                "「いや、さすがにおかしくない……？」",
+                "不安になったあなたは、スマホを取り出す。",
+                "まずは、いつものようにカレンダーを開いた。",
+                "毎月の楽しみである、りえ高のカレンダー。",
+                "そこにいるはずの、りえ校長を確認しようとして――"
+              ],
+              [
+                "あなたは、息を止めた。",
+                "「……いない？」",
+                "カレンダーに、りえ校長の姿がない。",
+                "「え、待って。壁紙、変えたっけ？」",
+                "慌ててホーム画面に戻る。",
+                "けれど、そこにあったはずの写真も、見覚えのない無地の画像に変わっていた。",
+                "嫌な予感がして、あなたは鞄の中を探る。",
+                "缶バッジ。",
+                "アクリルスタンド。",
+                "ブロマイド。",
+                "さっきまで確かに持っていたはずのグッズを、ひとつずつ取り出す。",
+                "「ちょっと待って……」",
+                "どれも、まっさらだった。",
+                "缶バッジには誰の顔も写っていない。",
+                "アクリルスタンドには輪郭すらない。",
+                "ブロマイドは、ただの白い紙になっている。",
+                "「何これ……！」",
+                "何度見ても、結果は変わらなかった。",
+                "まるで、りえりーに関するものだけが、この世界から消えてしまったみたいだった。",
+                "「そんなわけ……」",
+                "あなたは震える指で、会場のスケジュールを調べる。"
+              ],
+              [
+                "今日の日付。",
+                "会場名。",
+                "イベント一覧。",
+                "何度も確認する。",
+                "けれど、そこにあるはずの文字は、どこにもなかった。",
+                "2nd Live。",
+                "その文字が、ない。",
+                "「どうなってるんだ……」",
+                "さっきまであんなに現実に戻りたかったのに。",
+                "今、自分が戻ってきたはずの現実は、あなたの知っている現実ではなくなっていた。"
+              ],
+              [
+                "そのとき、スマホが震えた。",
+                "「え……？」",
+                "画面を見ると、差出人不明のメールが一通届いている。",
+                "件名はない。",
+                "本文だけが、静かに表示されていた。"
+              ],
+              {
+                mail: true,
+                from: "差出人不明",
+                subject: "（件名なし）",
+                body: [
+                  "あなたは何かを見落としている。",
+                  "救うべきは、シンデレラだけではない。",
+                  "見るべきは、その人の本当の姿。",
+                  "ここに向かって、あの子を救って。"
+                ]
+              },
+              [
+                "「救うべきは、シンデレラだけじゃない……？」",
+                "あなたは、画面の文字を何度も読み返した。",
+                "シンデレラ。",
+                "それはきっと、2023年のあの人のことだ。",
+                "青と白のドレスをまとい、明るく笑っていたあの人。",
+                "あなたを元の世界へ送り出してくれた、あの人。",
+                "でも。",
+                "本当に、救うべきだったのはそれだけだったのだろうか。",
+                "「見るべきは、その人の本当の姿……」",
+                "胸の奥に、小さな痛みが走る。"
+              ],
+              [
+                "思い返せば、彼女は最後に何かを言っていた気がする。",
+                "聞こえなかった。",
+                "いや、聞こうとしていなかったのかもしれない。",
+                "そのとき、メールの下部に添付ファイルがあることに気づいた。",
+                "開いてみると、そこには暗号のような図が表示されている。",
+                "「また謎か……」",
+                "どうやら、この謎を解けば、次に向かうべき場所がわかるらしい。",
+                "あなたは深く息を吸い、スマホの画面を見つめた。",
+                "「やるしかない」",
+                "消えてしまった世界。",
+                "残された言葉。",
+                "そして、まだ助けを待っている誰か。",
+                "ここで立ち止まるわけにはいかなかった。"
+              ]
+            ]
+          },
+          {
+            type: "multiPuzzle",
+            id: "chapter3-main",
+            intro: [
+              "メールに添付されていた暗号を読み解こう。"
+            ],
+            items: [
+              {
+                id: "3-info",
+                title: "添付ファイル",
+                image: "assets/chapter3/3-0.png",
+                infoOnly: true
+              },
+              {
+                id: "3-1",
+                title: "3-1",
+                image: "assets/chapter3/3-1.png",
+                fields: [
+                  { id: "3-1-a", label: "123", answers: ["しぶや", "シブヤ", "渋谷"] },
+                  { id: "3-1-b", label: "45", answers: ["行先", "行き先", "いきさき", "イキサキ"] }
+                ],
+                hints: []
+              },
+              {
+                id: "3-2",
+                title: "3-2",
+                image: "assets/chapter3/3-2.png",
+                fields: [
+                  { id: "3-2-a", label: "12345", answers: ["ただのりえ", "タダノリエ", "ただのリエ", "タダノりえ", "ただの李依", "タダノ李依"] }
+                ],
+                hints: []
+              }
+            ]
+          },
+          {
+            type: "story",
+            pages: [
+              [
+                "謎を解き終えたあなたは、画面に浮かび上がった答えを見つめる。",
+                "「やっぱり、あそこは…渋谷だったのか」",
+                "どうやら路線図は細工がされていたようだ。",
+                "「それに『ただのりえ』を救えって…やっぱりあの人の本当の姿も見るべきだったんだ」",
+                "向かう場所はわかった。でも、推しのいないこの世界からどうやって抜け出せばいいか見当がつかなかった。",
+                "そのとき、何かがこっちに落ちてくる。"
+              ],
+              [
+                "「……ロケット？」",
+                "思わず、声が漏れた。",
+                "「は？ ロケット？こんなの、ありえんだろ！？」",
+                "今日はありえないことが次々起きている。今度はロケットときたもんだ。",
+                "「これでどうしろっていうんだよ…まさか」",
+                "どうやら勘は当たっていたようだ。",
+                "あのときのあの場所へ続く一本のルート。",
+                "全部ロケットで一っ飛びのようだ。",
+                "現実とは思えない。",
+                "でも、もう何が起きても不思議ではなかった。",
+                "あなたは、まっさらになったグッズを鞄にしまい、スマホを握りしめる。",
+                "「……行こう」",
+                "今度こそ、見落とさないために。",
+                "今度こそ、あの人の本当の姿を見るために。",
+                "あなたは、表示された目的地へ向かって飛び出した！"
+              ]
+            ]
+          }
+        ]
+      },
+
+      {
+        id: "chapter4",
+        number: "第4章",
+        title: "シンデレラじゃなくても",
+        themeClass: "chapter-theme-4",
+        sections: [
+          {
+            type: "story",
+            pages: [
+              [
+                "川崎の街並みが遠ざかる。",
+                "見慣れたはずの道が、知らない色に塗り替わっていく。",
+                "足元がふわりと浮いたような感覚のあと、あなたはまばゆい光に包まれた。",
+                "あなたはロケットに吹っ飛ばされて渋谷に文字通り着弾した。",
+                "最初にロケット見たときは、さすがに冗談だと思った。",
+                "けれど、ここは確かに渋谷の街だった。3年前の。",
+                "「……結局、ここに戻ってくるのか」",
+                "大きな通り。",
+                "行き交う人の波。",
+                "空を切り取るように立ち並ぶ建物。",
+                "けれど、さっき訪れた灰被とは少し違う。"
+              ],
+              [
+                "「やっぱり……ここなんだ」",
+                "1st LIVEの会場。",
+                "たくさんの人が、彼女の最初の大きな一歩を見届けた場所。",
+                "シンデレラのように輝く姿を、たくさんのファンが見上げた場所。",
+                "でも、メールにはこう書かれていた。",
+                "“救うべきは、シンデレラだけではない“",
+                "その意味を、あなたはまだ掴みきれずにいた。",
+                "「あの人を探さないと」",
+                "あなたは渋谷の街を歩き出した。"
+              ],
+              [
+                "人の声は聞こえる。",
+                "車の音も、信号の音も、遠くのざわめきもある。",
+                "それなのに、この街にはどこか空白があった。",
+                "まるで、大事な色だけが抜け落ちてしまったみたいだった。",
+                "しばらく歩くと、人気の少ない場所に出た。",
+                "会場へ続く道の途中。",
+                "街の喧騒から少しだけ離れたその場所に、一人の女性が座り込んでいた。"
+              ],
+              [
+                "顔を伏せ、肩を小さく震わせている。",
+                "「……」",
+                "あなたは、すぐにわかった。",
+                "その人が誰なのか。",
+                "そして、今度こそ見間違えてはいけない相手なのだと。",
+                "ゆっくり近づき、声をかける。",
+                "「……りえりー、ですよね」",
+                "女性は顔を上げた。",
+                "目元はすっかり赤くなっていた。",
+                "さっきまで泣いていたのだと、一目でわかる。",
+                "それでも、あなたを見た瞬間、彼女はいつものように笑おうとした。",
+                "「……また来たんだ」",
+                "その声は、少しだけ震えていた。",
+                "「はい。来ました」",
+                "「物好きだね」",
+                "「自分でもそう思います」",
+                "あなたがそう答えると、彼女は小さく笑った。",
+                "けれど、その笑顔はすぐにほどけてしまう。"
+              ],
+              [
+                "「……ごめんね。こんなところ、見せるつもりじゃなかったんだけど」",
+                "その言葉を聞いた瞬間、胸が痛んだ。",
+                "見せるつもりじゃなかった。",
+                "そうだ。",
+                "きっと、見せないようにしてくれていたんだ。",
+                "ステージの上では、まぶしいくらいに笑って。",
+                "歌って、話して、手を振って。",
+                "私たちが帰ってきたくなるような場所を、何度も作ってくれて。",
+                "その裏側にある不安や迷いを、あなたは見ようとしていなかった。"
+              ],
+              [
+                "「……ごめんなさい」",
+                "「え？」",
+                "「私、忘れてました」",
+                "彼女は不思議そうにあなたを見る。",
+                "あなたは言葉を選びながら、ゆっくり続けた。",
+                "「ずっと、あなたのことを、すごく輝いている人だと思ってました。ステージの上で光を浴びて、どこまでも遠くへ行ける人なんだって」",
+                "彼女は何も言わなかった。",
+                "「でも、それだけじゃなかったんですよね」",
+                "街の明かりが、彼女の横顔を淡く照らしている。",
+                "ドレスでも、王冠でも、魔法でもない。",
+                "そこにいるのは、ただ一人の女の子だった。",
+                "迷うこともある。",
+                "怖くなることもある。",
+                "自分のままでいていいのか、誰かに共感されなくても進んでいいのか、何度も考えてしまうことだってある。",
+                "それなのに、あなたはそのことを忘れていた。"
+              ],
+              [
+                "「私は、あなたが作ってくれる場所が好きです」",
+                "彼女の指先が、かすかに動いた。",
+                "「ライブも、歌も、言葉も。楽しいだけじゃなくて、たぶん、いろんな気持ちを抱えたままでも帰ってきていい場所にしてくれているところが、すごく好きです」",
+                "あなたは少しだけ息を吸う。",
+                "「だから、ありがとうございます」",
+                "彼女は目を伏せた。",
+                "「……そんな立派なものじゃないよ」",
+                "「立派かどうかは、私にはわかりません」",
+                "あなたは首を横に振る。",
+                "「でも、少なくとも私は、何度もそこに帰りたくなりました。手紙を書きたくなったし、声を届けたくなったし、ペンライトを振りたくなった。今日だって、そこに行くためにここまで来ました」",
+                "彼女は黙ったまま、あなたの言葉を聞いている。",
+                "「だって、りえりーは私の背中を押してくれました。一緒に謎を解いて、元の世界へ進む道をくれました」",
+                "あなたは、少しだけ笑う。",
+                "「だから今度は、私が返したいんです」",
+                "「返す……？」",
+                "「はい」",
+                "あなたは彼女の前にしゃがみ込む。",
+                "同じ目線で、彼女を見る。",
+                "「無理に立ってくださいとは言いません。怖くないふりをしなくてもいいと思います。震えていても、迷っていても、カッコつけきれなくても、それでもいいと思います」",
+                "彼女の瞳が、少し揺れる。",
+                "「それでも、あなたが実現したいことがあるなら。見たい景色があるなら。そこへ行くために、私はどこまでもお供します」",
+                "言いながら、自分の声も震えていることに気づいた。",
+                "けれど、それでよかった。",
+                "「私一人にできることなんて、きっと小さいです。でも、手紙を書くことも、声を出すことも、拍手することも、ペンライトを振ることもできます。あなたが一歩踏み出す理由の、ほんの一部くらいにはなれるかもしれません」",
+                "彼女は、何かをこらえるように唇を結んだ。"
+              ],
+              [
+                "「……ずるいなあ」",
+                "「え？」",
+                "「そんなふうに言われたら、カッコつけたくなっちゃうじゃん」",
+                "そう言って、彼女は少しだけ笑った。",
+                "今度の笑顔は、さっきよりも自然だった。",
+                "それでも、まだ立ち上がるには少し勇気がいるように見えた。",
+                "あなたは立ち上がり、彼女に手を差し出す。",
+                "「カッコつけてもいいし、つけなくてもいいです」",
+                "彼女が顔を上げる。",
+                "「シンデレラじゃなくても、魔法が解けても、ドレスじゃなくても。私は、あなたがあなたのまま進もうとするなら、それを見届けたいです」",
+                "彼女は差し出された手を見つめた。"
+              ],
+              [
+                "長い沈黙があった。",
+                "渋谷の街の音が、遠くで揺れている。",
+                "どこかから、開演を待つようなざわめきが聞こえた気がした。",
+                "やがて、彼女はゆっくりと手を伸ばした。",
+                "その手が、あなたの手に重なる。",
+                "「……じゃあ、少しだけ」",
+                "「はい」",
+                "「少しだけ、付き合って」",
+                "「もちろんです」",
+                "あなたは彼女の手を引いた。",
+                "彼女はゆっくり立ち上がる。",
+                "まだ少し不安そうで、まだ少し震えていた。",
+                "でも、その足は確かに地面を踏んでいた。"
+              ],
+              [
+                "「ねえ」",
+                "「はい」",
+                "「私、またカッコつけちゃうかもしれないよ」",
+                "「いいと思います」",
+                "「失敗するかもしれない」",
+                "「それでも、見てます」",
+                "「怖くなるかもしれない」",
+                "「そのときは、またここに来ます」",
+                "彼女は目を丸くして、それから小さく吹き出した。",
+                "「ほんと、物好きだね」",
+                "「ファンなので」",
+                "「そっか」",
+                "彼女は、あなたの手を握り返した。",
+                "その瞬間、足元に光の線が走った。"
+              ],
+              [
+                "渋谷の街がほどけていく。",
+                "ビルの明かりが星のように散り、道はゆっくりと別の景色へつながっていく。",
+                "これは、ロケットなのだろうか。",
+                "それとも、誰かの想いが作った道なのだろうか。",
+                "どちらでもよかった。",
+                "あなたは彼女と並んで、光の先を見つめる。",
+                "「行きましょう」",
+                "「うん」",
+                "今度は、一人ではない。",
+                "シンデレラだけを追いかけるのではなく。",
+                "ただの一人の女の子だけを抱え込むのでもなく。",
+                "その両方を、ちゃんと見つめたまま。",
+                "あなたは彼女の手を取り、未来へ向かって歩き出した。"
+              ]
+            ]
+          }
+        ]
+      }
     ]
   };
 
@@ -92,14 +818,17 @@
     entrance: $("#screen-entrance"),
     warning: $("#screen-warning"),
     prologue: $("#screen-prologue"),
+    chapter: $("#screen-chapter"),
     soon: $("#screen-soon")
   };
 
   const pwInput = $("#pwInput");
   const unlockBtn = $("#unlockBtn");
   const pwMsg = $("#pwMsg");
-  const resetBtn = $("#resetBtn");
   const doorAudio = $("#doorAudio");
+
+  const resetBtnEntrance = $("#resetBtnEntrance");
+  const globalResetBtn = $("#globalResetBtn");
 
   const warningContent = $("#warningContent");
   const warningNextBtn = $("#warningNextBtn");
@@ -108,16 +837,29 @@
   const prologuePrevBtn = $("#prologuePrevBtn");
   const prologueNextBtn = $("#prologueNextBtn");
 
+  const chapterNumber = $("#chapterNumber");
+  const chapterTitle = $("#chapterTitle");
+  const chapterContent = $("#chapterContent");
+  const chapterNav = $("#chapterNav");
+  const chapterPrevBtn = $("#chapterPrevBtn");
+  const chapterNextBtn = $("#chapterNextBtn");
+
   const overlay = document.createElement("div");
   overlay.className = "fade-overlay";
   document.body.appendChild(overlay);
 
   const defaultProgress = {
     entryUnlocked: false,
-    stage: "entrance", // entrance | warning | prologue | soon
+    stage: "entrance",
     warningPage: 0,
-    prologuePage: 0
+    prologuePage: 0,
+    chapterIndex: 0,
+    sectionIndex: 0,
+    pageIndex: 0,
+    solved: {}
   };
+
+  let progress = loadProgress();
 
   function deepClone(obj) {
     return JSON.parse(JSON.stringify(obj));
@@ -142,18 +884,38 @@
     location.reload();
   }
 
-  let progress = loadProgress();
-
   function setScreen(name) {
     Object.entries(screens).forEach(([key, el]) => {
       el.classList.toggle("is-active", key === name);
     });
     progress.stage = name;
     saveProgress();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function fadeTransition(callback) {
+    overlay.classList.add("is-on");
+    window.setTimeout(() => {
+      callback();
+      overlay.classList.remove("is-on");
+    }, CONFIG.effects.fadeMs);
+  }
+
+  async function playDoorSound() {
+    try {
+      doorAudio.currentTime = 0;
+      await doorAudio.play();
+    } catch {
+      // ignore
+    }
+  }
+
+  function clearElement(el) {
+    while (el.firstChild) el.removeChild(el.firstChild);
   }
 
   function renderParagraphs(container, paragraphs, sign = "") {
-    container.innerHTML = "";
+    clearElement(container);
 
     paragraphs.forEach((text) => {
       const p = document.createElement("p");
@@ -170,15 +932,63 @@
     }
   }
 
+  function renderStoryPage(container, page) {
+    clearElement(container);
+    container.className = "story-box";
+
+    if (page && page.emphasis) {
+      container.classList.add("story-box--emphasis");
+      const div = document.createElement("div");
+      div.className = "story-emphasis-text";
+      div.textContent = page.text;
+      container.appendChild(div);
+      return;
+    }
+
+    if (page && page.mail) {
+      container.classList.add("story-box--quiet");
+      const mail = document.createElement("div");
+      mail.className = "mail-card";
+
+      const head = document.createElement("div");
+      head.className = "mail-card__header";
+
+      const from = document.createElement("div");
+      from.className = "mail-card__from";
+      from.textContent = page.from || "差出人不明";
+
+      const subject = document.createElement("div");
+      subject.className = "mail-card__subject";
+      subject.textContent = `件名：${page.subject || "（なし）"}`;
+
+      head.appendChild(from);
+      head.appendChild(subject);
+
+      const body = document.createElement("div");
+      body.className = "mail-card__body";
+      (page.body || []).forEach((line) => {
+        const p = document.createElement("p");
+        p.textContent = line;
+        body.appendChild(p);
+      });
+
+      mail.appendChild(head);
+      mail.appendChild(body);
+      container.appendChild(mail);
+      return;
+    }
+
+    (page || []).forEach((text) => {
+      const p = document.createElement("p");
+      p.className = "story-paragraph";
+      p.textContent = text;
+      container.appendChild(p);
+    });
+  }
+
   function renderWarningPage() {
     const page = CONFIG.warningPages[progress.warningPage];
     renderParagraphs(warningContent, page.paragraphs, page.sign);
-
-    if (progress.warningPage >= CONFIG.warningPages.length - 1) {
-      warningNextBtn.textContent = "次へ";
-    } else {
-      warningNextBtn.textContent = "次へ";
-    }
   }
 
   function renderProloguePage() {
@@ -186,25 +996,456 @@
     renderParagraphs(prologueContent, page);
 
     prologuePrevBtn.style.visibility = progress.prologuePage === 0 ? "hidden" : "visible";
-    prologueNextBtn.textContent =
-      progress.prologuePage >= CONFIG.prologuePages.length - 1 ? "次へ" : "次へ";
   }
 
-  async function playDoorSound() {
-    try {
-      doorAudio.currentTime = 0;
-      await doorAudio.play();
-    } catch {
-      // ignore
+  function getCurrentChapter() {
+    return CONFIG.chapters[progress.chapterIndex];
+  }
+
+  function getCurrentSection() {
+    const chapter = getCurrentChapter();
+    return chapter.sections[progress.sectionIndex];
+  }
+
+  function renderChapter() {
+    const chapter = getCurrentChapter();
+    const section = getCurrentSection();
+
+    document.body.classList.toggle("chapter-theme-4", chapter.themeClass === "chapter-theme-4");
+
+    chapterNumber.textContent = chapter.number;
+    chapterTitle.textContent = chapter.title;
+
+    clearElement(chapterContent);
+
+    if (!section) {
+      setScreen("soon");
+      return;
     }
+
+    if (section.type === "story") {
+      renderChapterStory(section);
+    } else if (section.type === "puzzleGroup") {
+      renderPuzzleGroup(section);
+    } else if (section.type === "singlePuzzle") {
+      renderSinglePuzzle(section);
+    } else if (section.type === "multiPuzzle") {
+      renderMultiPuzzle(section);
+    }
+
+    setScreen("chapter");
   }
 
-  function fadeTransition(callback) {
-    overlay.classList.add("is-on");
-    window.setTimeout(() => {
-      callback();
-      overlay.classList.remove("is-on");
-    }, CONFIG.effects.fadeMs);
+  function renderChapterStory(section) {
+    const box = document.createElement("div");
+    chapterContent.appendChild(box);
+
+    renderStoryPage(box, section.pages[progress.pageIndex]);
+
+    chapterNav.style.display = "flex";
+    chapterPrevBtn.style.visibility =
+      progress.pageIndex === 0 && progress.sectionIndex === 0 && progress.chapterIndex === 0
+        ? "hidden"
+        : "visible";
+
+    chapterNextBtn.disabled = false;
+    chapterNextBtn.textContent = "次へ";
+  }
+
+  function makeIntro(introLines) {
+    if (!introLines || !introLines.length) return null;
+
+    const intro = document.createElement("div");
+    intro.className = "puzzle-intro";
+    introLines.forEach((line) => {
+      const p = document.createElement("p");
+      p.textContent = line;
+      intro.appendChild(p);
+    });
+    return intro;
+  }
+
+  function renderPuzzleGroup(section) {
+    const area = document.createElement("div");
+    area.className = "puzzle-area";
+    chapterContent.appendChild(area);
+
+    const intro = makeIntro(section.intro);
+    if (intro) area.appendChild(intro);
+
+    section.items.forEach((item) => {
+      area.appendChild(makePuzzleCard(item));
+    });
+
+    const allSolved = section.items.every((item) => isSolved(item.id));
+
+    if (!allSolved) {
+      const note = document.createElement("div");
+      note.className = "unlock-note";
+      note.textContent = "すべての謎を解くと、最後の謎が開きます。";
+      area.appendChild(note);
+    } else {
+      area.appendChild(makePuzzleCard(section.final));
+    }
+
+    chapterNav.style.display = "flex";
+    chapterPrevBtn.style.visibility = "visible";
+    chapterNextBtn.disabled = !isSolved(section.final.id);
+    chapterNextBtn.textContent = "次へ";
+  }
+
+  function renderSinglePuzzle(section) {
+    const area = document.createElement("div");
+    area.className = "puzzle-area";
+    chapterContent.appendChild(area);
+
+    area.appendChild(makePuzzleCard(section));
+
+    chapterNav.style.display = "flex";
+    chapterPrevBtn.style.visibility = "visible";
+    chapterNextBtn.disabled = !isSolved(section.id);
+    chapterNextBtn.textContent = "次へ";
+  }
+
+  function renderMultiPuzzle(section) {
+    const area = document.createElement("div");
+    area.className = "puzzle-area";
+    chapterContent.appendChild(area);
+
+    const intro = makeIntro(section.intro);
+    if (intro) area.appendChild(intro);
+
+    section.items.forEach((item) => {
+      if (item.infoOnly) {
+        area.appendChild(makeInfoCard(item));
+      } else {
+        area.appendChild(makeMultiFieldPuzzleCard(item));
+      }
+    });
+
+    const requiredItems = section.items.filter((item) => !item.infoOnly);
+    const allSolved = requiredItems.every((item) => isSolved(item.id));
+
+    chapterNav.style.display = "flex";
+    chapterPrevBtn.style.visibility = "visible";
+    chapterNextBtn.disabled = !allSolved;
+    chapterNextBtn.textContent = "次へ";
+  }
+
+  function makeInfoCard(item) {
+    const card = document.createElement("article");
+    card.className = "puzzle-card";
+
+    const head = document.createElement("div");
+    head.className = "puzzle-card__head";
+
+    const title = document.createElement("h2");
+    title.className = "puzzle-card__title";
+    title.textContent = item.title;
+
+    head.appendChild(title);
+    card.appendChild(head);
+
+    if (item.image) {
+      card.appendChild(makeImage(item.image, item.title));
+    }
+
+    return card;
+  }
+
+  function makePuzzleCard(item) {
+    const solved = isSolved(item.id);
+
+    const card = document.createElement("article");
+    card.className = `puzzle-card${solved ? " is-solved" : ""}`;
+
+    const head = document.createElement("div");
+    head.className = "puzzle-card__head";
+
+    const title = document.createElement("h2");
+    title.className = "puzzle-card__title";
+    title.textContent = item.title;
+
+    const badge = document.createElement("span");
+    badge.className = `status-badge${solved ? " status-badge--ok" : ""}`;
+    badge.textContent = solved ? "解読済み" : "未解読";
+
+    head.appendChild(title);
+    head.appendChild(badge);
+    card.appendChild(head);
+
+    if (item.image) {
+      card.appendChild(makeImage(item.image, item.title));
+    }
+
+    const row = document.createElement("div");
+    row.className = "answer-row";
+
+    const input = document.createElement("input");
+    input.className = "answer-input";
+    input.type = "text";
+    input.autocomplete = "off";
+    input.disabled = solved;
+
+    const btn = document.createElement("button");
+    btn.className = "btn btn--primary answer-btn";
+    btn.type = "button";
+    btn.textContent = solved ? "OK" : "解答";
+    btn.disabled = solved;
+
+    const msg = document.createElement("div");
+    msg.className = "answer-msg";
+    msg.textContent = solved ? "正解済みです。" : "";
+
+    row.appendChild(input);
+    row.appendChild(btn);
+    card.appendChild(row);
+    card.appendChild(msg);
+
+    btn.addEventListener("click", () => {
+      if (checkAnswer(input.value, item.answers, item.answerMode)) {
+        markSolved(item.id);
+        renderChapter();
+      } else {
+        msg.textContent = "……違うようだ。もう一度。";
+      }
+    });
+
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") btn.click();
+    });
+
+    const hints = makeHints(item.hints);
+    if (hints) card.appendChild(hints);
+
+    return card;
+  }
+
+  function makeMultiFieldPuzzleCard(item) {
+    const solved = isSolved(item.id);
+
+    const card = document.createElement("article");
+    card.className = `puzzle-card${solved ? " is-solved" : ""}`;
+
+    const head = document.createElement("div");
+    head.className = "puzzle-card__head";
+
+    const title = document.createElement("h2");
+    title.className = "puzzle-card__title";
+    title.textContent = item.title;
+
+    const badge = document.createElement("span");
+    badge.className = `status-badge${solved ? " status-badge--ok" : ""}`;
+    badge.textContent = solved ? "解読済み" : "未解読";
+
+    head.appendChild(title);
+    head.appendChild(badge);
+    card.appendChild(head);
+
+    if (item.image) {
+      card.appendChild(makeImage(item.image, item.title));
+    }
+
+    const msg = document.createElement("div");
+    msg.className = "answer-msg";
+    msg.textContent = solved ? "正解済みです。" : "";
+
+    const inputs = [];
+
+    item.fields.forEach((field) => {
+      const row = document.createElement("div");
+      row.className = "answer-row";
+
+      const label = document.createElement("div");
+      label.className = "answer-label";
+      label.textContent = field.label;
+
+      const input = document.createElement("input");
+      input.className = "answer-input";
+      input.type = "text";
+      input.autocomplete = "off";
+      input.disabled = solved;
+
+      inputs.push({ input, field });
+
+      row.appendChild(label);
+      row.appendChild(input);
+      card.appendChild(row);
+    });
+
+    const btn = document.createElement("button");
+    btn.className = "btn btn--primary answer-btn";
+    btn.type = "button";
+    btn.textContent = solved ? "OK" : "解答";
+    btn.disabled = solved;
+    btn.style.marginTop = "12px";
+
+    btn.addEventListener("click", () => {
+      const ok = inputs.every(({ input, field }) => {
+        return checkAnswer(input.value, field.answers, field.answerMode);
+      });
+
+      if (ok) {
+        markSolved(item.id);
+        renderChapter();
+      } else {
+        msg.textContent = "……違うようだ。もう一度。";
+      }
+    });
+
+    inputs.forEach(({ input }) => {
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") btn.click();
+      });
+    });
+
+    card.appendChild(btn);
+    card.appendChild(msg);
+
+    const hints = makeHints(item.hints);
+    if (hints) card.appendChild(hints);
+
+    return card;
+  }
+
+  function makeImage(src, alt) {
+    const wrap = document.createElement("div");
+    wrap.className = "puzzle-image-wrap";
+
+    const img = document.createElement("img");
+    img.className = "puzzle-image puzzle-image--contain";
+    img.src = src;
+    img.alt = alt || "問題画像";
+    img.loading = "lazy";
+
+    wrap.appendChild(img);
+    return wrap;
+  }
+
+  function makeHints(hints) {
+    if (!hints || !hints.length) return null;
+
+    const list = document.createElement("div");
+    list.className = "hint-list";
+
+    hints.forEach((hint, idx) => {
+      const d = document.createElement("details");
+      const s = document.createElement("summary");
+      s.textContent = `ヒント${idx + 1}`;
+      const p = document.createElement("p");
+      p.textContent = hint;
+      d.appendChild(s);
+      d.appendChild(p);
+      list.appendChild(d);
+    });
+
+    return list;
+  }
+
+  function isSolved(id) {
+    return Boolean(progress.solved[id]);
+  }
+
+  function markSolved(id) {
+    progress.solved[id] = true;
+    saveProgress();
+  }
+
+  function normalizeAnswer(value) {
+    return String(value ?? "")
+      .normalize("NFKC")
+      .toLowerCase()
+      .replace(/[\s　・･、。，．.\/／\-ー―‐_＿'’"“”「」『』（）()［\]\[\]【】]/g, "")
+      .replace(/[ァ-ン]/g, (ch) => String.fromCharCode(ch.charCodeAt(0) - 0x60));
+  }
+
+  function normalizeAlpha(value) {
+    return String(value ?? "")
+      .normalize("NFKC")
+      .toLowerCase()
+      .replace(/[^a-z]/g, "");
+  }
+
+  function checkAnswer(input, answers, mode = "normal") {
+    if (mode === "alpha") {
+      const v = normalizeAlpha(input);
+      return answers.some((ans) => v === normalizeAlpha(ans));
+    }
+
+    const v = normalizeAnswer(input);
+    return answers.some((ans) => v === normalizeAnswer(ans));
+  }
+
+  function goNextSection() {
+    const chapter = getCurrentChapter();
+    const section = getCurrentSection();
+
+    if (section.type === "story") {
+      if (progress.pageIndex < section.pages.length - 1) {
+        progress.pageIndex += 1;
+        saveProgress();
+        renderChapter();
+        return;
+      }
+    }
+
+    if (progress.sectionIndex < chapter.sections.length - 1) {
+      progress.sectionIndex += 1;
+      progress.pageIndex = 0;
+      saveProgress();
+      renderChapter();
+      return;
+    }
+
+    if (progress.chapterIndex < CONFIG.chapters.length - 1) {
+      progress.chapterIndex += 1;
+      progress.sectionIndex = 0;
+      progress.pageIndex = 0;
+      saveProgress();
+      renderChapter();
+      return;
+    }
+
+    progress.stage = "soon";
+    saveProgress();
+    setScreen("soon");
+  }
+
+  function goPrevSection() {
+    const section = getCurrentSection();
+
+    if (section && section.type === "story" && progress.pageIndex > 0) {
+      progress.pageIndex -= 1;
+      saveProgress();
+      renderChapter();
+      return;
+    }
+
+    if (progress.sectionIndex > 0) {
+      progress.sectionIndex -= 1;
+      const prevSection = getCurrentSection();
+      progress.pageIndex = prevSection.type === "story" ? prevSection.pages.length - 1 : 0;
+      saveProgress();
+      renderChapter();
+      return;
+    }
+
+    if (progress.chapterIndex > 0) {
+      progress.chapterIndex -= 1;
+      const prevChapter = getCurrentChapter();
+      progress.sectionIndex = prevChapter.sections.length - 1;
+      const prevSection = getCurrentSection();
+      progress.pageIndex = prevSection.type === "story" ? prevSection.pages.length - 1 : 0;
+      saveProgress();
+      renderChapter();
+      return;
+    }
+
+    progress.stage = "prologue";
+    progress.prologuePage = CONFIG.prologuePages.length - 1;
+    saveProgress();
+    renderProloguePage();
+    setScreen("prologue");
   }
 
   function initializeFromProgress() {
@@ -216,6 +1457,9 @@
       case "prologue":
         renderProloguePage();
         setScreen("prologue");
+        break;
+      case "chapter":
+        renderChapter();
         break;
       case "soon":
         setScreen("soon");
@@ -286,6 +1530,7 @@
     }
 
     progress.stage = "warning";
+    progress.warningPage = CONFIG.warningPages.length - 1;
     saveProgress();
     renderWarningPage();
     setScreen("warning");
@@ -299,12 +1544,28 @@
       return;
     }
 
-    progress.stage = "soon";
+    progress.stage = "chapter";
+    progress.chapterIndex = 0;
+    progress.sectionIndex = 0;
+    progress.pageIndex = 0;
     saveProgress();
-    setScreen("soon");
+    renderChapter();
   });
 
-  resetBtn.addEventListener("click", () => {
+  chapterNextBtn.addEventListener("click", () => {
+    if (!chapterNextBtn.disabled) goNextSection();
+  });
+
+  chapterPrevBtn.addEventListener("click", () => {
+    goPrevSection();
+  });
+
+  resetBtnEntrance.addEventListener("click", () => {
+    const ok = confirm("進捗をリセットしますか？（テスト用）");
+    if (ok) resetProgress();
+  });
+
+  globalResetBtn.addEventListener("click", () => {
     const ok = confirm("進捗をリセットしますか？（テスト用）");
     if (ok) resetProgress();
   });
