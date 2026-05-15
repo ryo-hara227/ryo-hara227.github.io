@@ -8,7 +8,6 @@
 </head>
 <body>
   <main id="app" class="app">
-    <!-- Entrance -->
     <section id="screen-entrance" class="screen is-active" aria-label="入口">
       <div class="paper paper--gate">
         <header class="paper__header">
@@ -38,19 +37,9 @@
           <div class="unlock">
             <label class="unlock__label" for="pwInput">PASSWORD（数字3ケタ）</label>
             <div class="unlock__row">
-              <input
-                id="pwInput"
-                class="unlock__input"
-                type="text"
-                inputmode="numeric"
-                autocomplete="one-time-code"
-                maxlength="3"
-                placeholder=""
-                aria-describedby="pwHelp"
-              />
+              <input id="pwInput" class="unlock__input" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="3" />
               <button id="unlockBtn" class="btn btn--primary unlock__button" type="button">UNLOCK</button>
             </div>
-            <div id="pwHelp" class="unlock__help"></div>
             <div id="pwMsg" class="unlock__msg" role="status" aria-live="polite"></div>
           </div>
         </section>
@@ -63,31 +52,25 @@
       </div>
     </section>
 
-    <!-- Warning -->
     <section id="screen-warning" class="screen" aria-label="注意書き">
       <div class="paper paper--story">
         <div class="chapter-head">
           <div class="chapter-head__sub">ぱかの輪 presents</div>
           <h1 class="chapter-head__title">⚠️注意！！⚠️</h1>
         </div>
-
         <div id="warningContent" class="story-box"></div>
-
         <div class="nav-row">
           <button id="warningNextBtn" class="btn btn--primary" type="button">次へ</button>
         </div>
       </div>
     </section>
 
-    <!-- Prologue -->
     <section id="screen-prologue" class="screen" aria-label="プロローグ">
       <div class="paper paper--story">
         <div class="chapter-head">
           <div class="chapter-head__sub">Prologue</div>
         </div>
-
         <div id="prologueContent" class="story-box story-box--prologue"></div>
-
         <div class="nav-row nav-row--story">
           <button id="prologuePrevBtn" class="btn btn--ghost" type="button">戻る</button>
           <button id="prologueNextBtn" class="btn btn--primary" type="button">次へ</button>
@@ -95,16 +78,13 @@
       </div>
     </section>
 
-    <!-- Chapters -->
     <section id="screen-chapter" class="screen" aria-label="本編">
       <div class="paper paper--story">
         <div class="chapter-head">
           <div id="chapterNumber" class="chapter-head__sub"></div>
           <h1 id="chapterTitle" class="chapter-head__title"></h1>
         </div>
-
         <div id="chapterContent"></div>
-
         <div id="chapterNav" class="nav-row nav-row--story">
           <button id="chapterPrevBtn" class="btn btn--ghost" type="button">戻る</button>
           <button id="chapterNextBtn" class="btn btn--primary" type="button">次へ</button>
@@ -112,7 +92,16 @@
       </div>
     </section>
 
-    <!-- Temporary placeholder -->
+    <section id="screen-message" class="screen" aria-label="メッセージボード">
+      <div class="paper paper--story paper--message">
+        <div class="chapter-head">
+          <div class="chapter-head__sub">Message Board</div>
+          <h1 class="chapter-head__title">りえりーへのメッセージボード</h1>
+        </div>
+        <div id="messageContent"></div>
+      </div>
+    </section>
+
     <section id="screen-soon" class="screen" aria-label="続き">
       <div class="paper paper--center paper--story">
         <div class="soon">
