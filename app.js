@@ -2,13 +2,31 @@
   "use strict";
 
   function pg(text) {
-    return text.trim().split(/\n\s*\n/).map(s => s.trim()).filter(Boolean);
+    return text
+      .trim()
+      .split(/\n\s*\n/)
+      .map(s => s.replace(/\n\s*/g, "").trim())
+      .filter(Boolean);
   }
 
   const API_URL = "https://script.google.com/macros/s/AKfycbw5FFhCoIyl0osCGun4pmtAqv22_cvdEow46fjKt8E9bWHjrW_Sy0XGdsLYdgvaF2fR/exec";
 
+  const chapter6Testimonies = [
+    "1番左の扉からは聞き覚えのある曲が聞こえてきた。\n曲名は覚えていない。でも、大好きな声。",
+    "左から2番目の扉からは聞き覚えのある曲が聞こえてきた。\n曲名は覚えていない。でも、大好きな声。",
+    "1番右の扉からはいろんな人の声が聞こえてきた。\nどこか同じようでどこかが違う。でも、大好きな声。",
+    "右から2番目の扉からは知らない曲も聞こえてきた。\nただ、大好きな声がした。",
+    "扉が通じる先を古い順に並べると、2番の扉の方が3番の扉より先になる。",
+    "4番の扉は最新ではない。",
+    "1番の扉の通じる先は1番年が古い。",
+    "2番の扉は、4番の扉よりも古い。",
+    "鍵は言葉で紡がれる。",
+    "鍵はこの世界で大事なこと。",
+    "鍵で花が咲いたり、おひれが付いたりすることがある。"
+  ];
+
   const CONFIG = {
-    storageKey: "wonderland_progress_v6",
+    storageKey: "wonderland_progress_v7",
     allowedPasswords: ["314"],
     uiText: {
       wrong: "……違うようだ。もう一度。",
@@ -1482,19 +1500,7 @@
               `),
               {
                 testimony:true,
-                items:[
-                  "1番左の扉からは聞き覚えのある曲が聞こえてきた。\n曲名は覚えていない。でも、大好きな声。",
-                  "左から2番目の扉からは聞き覚えのある曲が聞こえてきた。\n曲名は覚えていない。でも、大好きな声。",
-                  "1番右の扉からはいろんな人の声が聞こえてきた。\nどこか同じようでどこかが違う。でも、大好きな声。",
-                  "右から2番目の扉からは知らない曲も聞こえてきた。\nただ、大好きな声がした。",
-                  "扉が通じる先を古い順に並べると、2番の扉の方が3番の扉より先になる。",
-                  "4番の扉は最新ではない。",
-                  "1番の扉の通じる先は1番年が古い。",
-                  "2番の扉は、4番の扉よりも古い。",
-                  "鍵は言葉で紡がれる。",
-                  "鍵はこの世界で大事なこと。",
-                  "鍵で花が咲いたり、おひれが付いたりすることがある。"
-                ]
+                items:chapter6Testimonies
               },
               pg(`
                 「どの扉にも鍵がかかっている…あれ？鍵は？」
@@ -1508,6 +1514,8 @@
             id:"6-door",
             title:"正しい扉と鍵",
             intro:["証言をもとに、正しい扉と鍵となる言葉を導こう。"],
+            image:"assets/chapter6/6-1.png",
+            testimonies:chapter6Testimonies,
             doorAnswer:"3",
             keyAnswers:["話","はなし","ハナシ"]
           },
@@ -2090,22 +2098,7 @@
 
     if(page && page.testimony){
       container.classList.add("story-box--quiet");
-      const grid = document.createElement("div");
-      grid.className = "testimony-grid";
-      page.items.forEach((text, idx) => {
-        const card = document.createElement("div");
-        card.className = "testimony-card";
-        const title = document.createElement("div");
-        title.className = "testimony-card__title";
-        title.textContent = `証言${idx + 1}`;
-        const body = document.createElement("div");
-        body.className = "story-paragraph";
-        body.textContent = text;
-        card.appendChild(title);
-        card.appendChild(body);
-        grid.appendChild(card);
-      });
-      container.appendChild(grid);
+      container.appendChild(makeTestimonyGrid(page.items));
       return;
     }
 
@@ -2138,6 +2131,25 @@
       p.textContent = text;
       container.appendChild(p);
     });
+  }
+
+  function makeTestimonyGrid(items){
+    const grid = document.createElement("div");
+    grid.className = "testimony-grid";
+    items.forEach((text, idx) => {
+      const card = document.createElement("div");
+      card.className = "testimony-card";
+      const title = document.createElement("div");
+      title.className = "testimony-card__title";
+      title.textContent = `証言${idx + 1}`;
+      const body = document.createElement("div");
+      body.className = "story-paragraph";
+      body.textContent = text;
+      card.appendChild(title);
+      card.appendChild(body);
+      grid.appendChild(card);
+    });
+    return grid;
   }
 
   function makeIntro(lines){
@@ -2218,6 +2230,17 @@
 
     const intro = makeIntro(section.intro);
     if(intro) area.appendChild(intro);
+
+    if(section.image){
+      area.appendChild(makeInfoCard({ title:"扉の図", image:section.image }));
+    }
+
+    if(section.testimonies && section.testimonies.length){
+      const wrap = document.createElement("div");
+      wrap.className = "story-box story-box--quiet";
+      wrap.appendChild(makeTestimonyGrid(section.testimonies));
+      area.appendChild(wrap);
+    }
 
     const card = document.createElement("article");
     card.className = `puzzle-card${isSolved(section.id) ? " is-solved" : ""}`;
