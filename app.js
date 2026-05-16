@@ -2595,8 +2595,8 @@
     box.className = "board-box";
     box.innerHTML = `
       <p class="board-lead">
-        ここに集まった言葉は、<br>
-        このワンダーランドを歩いた皆様からの小さな付箋です。
+        ここに集まった言葉を<br>
+        りえりーに届けます。
       </p>
       <div class="board-form">
         <label class="board-label" for="boardPassword">PASSWORD</label>
@@ -2641,7 +2641,7 @@
     box.innerHTML = `
       <p class="board-lead">
         りえりーへのメッセージを自由に残してください。<br>
-        ネタバレや個人情報の記載はお控えください。
+        個人情報の記載はお控えください。
       </p>
       <div class="board-form">
         <label class="board-label">ペンネーム（20文字以内）</label>
@@ -2714,8 +2714,8 @@
     box.className = "board-box";
     box.innerHTML = `
       <p class="board-lead">
-        ここに集まった言葉は、<br>
-        このワンダーランドを歩いた皆様からの小さな付箋です。
+        集まった言葉はいつでも見返せます。<br>
+        時々読んでもらえたら嬉しいです。
       </p>
       <div class="nav-row">
         <button id="reloadBoardBtn" class="btn btn--primary" type="button">更新</button>
