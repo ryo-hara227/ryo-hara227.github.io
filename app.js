@@ -314,7 +314,7 @@
           {
             type:"singlePuzzle",
             id:"1-route",
-            title:"次の行き先",
+            title:"次の行き先を路線図から選ぼう",
             image:"assets/chapter1/1-route.png",
             answers:["灰被","はいかぶり","ハイカブリ"],
             hints:[
